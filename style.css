@@ -1,0 +1,204 @@
+/* Global Styles */
+body {
+    min-height: 100vh;
+    font-family: Helvetica, Arial, sans-serif;
+    background: linear-gradient(to top, #04182c, #01080f, #000000);
+    color: rgb(211, 211, 211);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.6;
+}
+
+header {
+    position: fixed;
+    top: 20px;
+    right: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 20px;
+    z-index: 1000;
+}
+
+.nav-left,
+.nav-right {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    justify-content: center;
+}
+
+.nav-right a,
+.nav-left a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    font-weight: bold;
+}
+
+.profile-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    max-width: 600px;
+}
+
+.profile-picture {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    margin: 0 auto 0px;
+    transition: transform 0.3s ease;
+}
+
+.profile-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-picture:hover {
+    transform: scale(1.1);
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0 0 20px;
+    color: #ddd;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.social-links a {
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.social-links a img {
+    width: 24px;
+    height: 24px;
+}
+
+.social-links a:hover {
+    transform: scale(1.4);
+}
+
+.blog-list {
+    text-align: center;
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.blog-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #333;
+}
+
+.blog-item:last-child {
+    border-bottom: none;
+}
+
+.blog-title {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+    flex: 1;
+    text-align: left;
+}
+
+.blog-title:hover {
+    color: #ffffff;
+    text-shadow: 0 0 20px #ffffff;
+}
+
+.blog-date {
+    color: #bbb;
+    font-size: 0.9rem;
+    text-align: right;
+    min-width: 150px;
+}
+
+footer {
+    margin-top: auto;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #777;
+    margin-top: 50px;
+}
+
+.encrypted-text {
+    display: inline;
+    cursor: pointer;
+}
+
+.item {
+    text-decoration: none;
+    color: #ffffff;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.scroll-arrow {
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    border-right: 2px solid #8c8a8a;
+    border-bottom: 2px solid #8c8a8a;
+    transform: translateX(-50%) rotate(45deg);
+    animation: bounce 2s infinite;
+    transition: opacity 0.5s ease, bottom 0.5s ease;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0) rotate(45deg); }
+    50% { transform: translateX(-50%) translateY(5px) rotate(45deg); }
+}
+
+/* Resume specific */
+.container {
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.experience { margin-bottom: 40px; }
+.experience h2 { font-size: 1.5em; margin-bottom: 10px; }
+.experience p { font-size: 1em; line-height: 1.6; margin-bottom: 10px; }
+.experience ul { list-style-type: none; padding: 0; }
+.experience ul li { margin-bottom: 5px; }
+.experience a { color: #ffffff; text-decoration: none; }
+.experience a:hover { text-decoration: underline; }
+.item2 { color: #ffffff; }
+.text-container { font-size: 2rem; position: relative; cursor: pointer; white-space: nowrap; }
+.text-container span { display: inline-block; }
+.text-container span.hidden { visibility: hidden; }
+
+/* Blog specific */
+main { max-width: 800px; text-align: left; }
+h1 { text-align: center; }
+h2 { text-align: center; }
+.blog-meta { font-size: 0.9rem; color: #aaa; margin-bottom: 20px; text-align: center; }
+.hashtags { text-align: center; margin: 10px 0; }
+.hashtags span { display: inline-block; background: #26292b; color: rgb(192, 190, 190); padding: 5px 10px; margin: 5px; border-radius: 10px; font-size: 0.9rem; }
+.blog-content { text-align: justify; }
+.title-photo { display: block; margin: 0 auto; width: 20%; max-width: 100%; height: auto; background: transparent; }
+.smaller-image { width: 90%; max-width: 100%; height: auto; display: block; margin: 0 auto; }
+.dark-small-text { color: #adadad; font-size: 0.90em; }

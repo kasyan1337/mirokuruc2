@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <meta name="date" content="2025-01-01"> 
+    <meta name="author" content="Miro Kuruc"> 
+</head>
+
+<body>
+
+    <header>
+        <div class="nav-left">
+            <a href="../index.html" class="encrypted-text" data-original="Back"><b>Back</b></a>
+            <a href="https://raw.githubusercontent.com/MiroKuruc/whoami/refs/heads/main/Miro%20Kuruc%20(65C4EF4B)%20%E2%80%93%20Public.asc"
+                id="downloadLink" class="encrypted-text" data-original="PGP"><b>PGP</b></a>
+            <a href="../resume.html" class="encrypted-text" data-original="Resume"><b>Resume</b></a>
+        </div>
+    </header>
+
+<main>
+
+    <title>NotPetya: GRU-esome Ransomware Sabotage</title>
+
+    <div style="padding: 100px;"></div>
+
+    <img src="blogpictures/notpetya_title.png" alt="Description of image" class="title-photo">
+
+    <h1>NotPetya: GRU-esome <s>Ransomware</s> Sabotage*</h1>
+
+    <div class="blog-meta">
+        Published on: 28 October 2024 | Reading Time: 4 min
+    </div>
+
+    <div class="hashtags">
+        <span>#Cybersecurity</span> <span>#AcademicWriting</span> <span>#APTs</span>
+    </div>
+
+    <div style="padding: 20px;"></div>
+
+    <div class="blog-content">
+        <h2>Executive Summary</h2>
+        <p>On June 27th, 2017, a day before its Independence Day, Ukraine experienced a malware attack. This malware,
+            distributed by the hijacked supply chain of widely used software across the country, spilled beyond its
+            borders and caused unprecedented damages to multiple international companies. The attack resulted in damages
+            estimated to approximately 10 billion US dollars globally. </p>
+        <div style="height: 25px;"></div> 
+
+        <h2>Architecture of the Attack</h2>
+        <p>The attackers distributed the malware by infiltrating it through server updates of M.E.Doc, an accounting
+            software created by the Ukrainian company Linkos Group. Thanks to this initial vector, the attackers avoided
+            triggering any red flags in detection systems. Everybody who fills taxes in Ukraine was at the end point of
+            this malware. While initial delivery was done through an update, the malware further rapidly propagated
+            thanks to NSA-developed EternalBlue Exploit that was leaked by so-called Shadow Brokers, and open sources
+            Mimikatz password extracting tool. The combination of these two tools along with the fact that the design of
+            the malware was indiscriminate, had no time outs, no location-based execution, nor any other guardrails,
+            made the malware spill over Ukrainian borders.</p>
+        <p>While on the surface the malware resembled a ransomware attack and offered to decrypt the infected devices
+            for a ransom payment, it was not possible to make them. In some cases, the malware completely wiped or
+            irreversibly encrypted the infected devices. The name of the malware was born as the attack resembled the
+            Petya ransomware from March 2016, but it was Not Petya in reality. NotPetya was a wiper malware disguised as
+            ransomware. </p>
+        <div style="height: 25px;"></div> 
+
+        <h2>Result of the Attack</h2>
+        <p> The NotPetya fulfilled its designed goal. Up to 80% of businesses in the country were affected. Widespread
+            disruption across various sectors, including government, transportation, energy, and finance led to
+            substantial operational paralysis and data loss that resulted in damages estimates in the country alone to
+            be around $850 million.</p>
+        <p> The malicious M.E.Doc update got to every company that used the software or was connected to a network that
+            used it. Among these, were FedEx, Maersk, Saint-Gobain, Reckitt Benckiser, Mondelez, public companies that
+            had to acknowledge the attack to shareholders, and many others that did not acknowledge the attack. Because
+            the attack spilled beyond Ukraine borders and infected multiple international companies, the overall damages
+            are due to opportunity costs like lost sales, and lower productivity, that make up a large portion of
+            reported costs estimated to reach about 10 billion US dollars globally. This number is considered to be the
+            floor, not a ceiling as many companies did not acknowledge they had been hacked and therefore, it is safe to
+            assume that real damages may be higher.</p>
+        <p> In example, Maersk international network got infected thanks to a single device in Maersk's Ukraine office
+            in Odessa, that had M.E.Doc software on its computer. This single device served as the entry point for the
+            attack into Maersk's network. Once the malware was activated, it rapidly propagated throughout Maersk's
+            global infrastructure, crippling operations across ports and affecting workstations. Maersk's case serves as
+            proof that cyberattacks can have physical effects even without ICS components. </p>
+        <p> NotPetya spread even to Russia to companies such as Rosneft, EVRAZ, and Vitro, where the total estimated
+            damages are estimated to be around $200 million. The overall damage is assumed to be collateral and
+            unintended, caused by poor architecture of the attack, which speaks to the recklessness of its authors.
+            While it is difficult to explain such damages only by negligence and carelessness, a more plausible
+            hypothesis is, that NotPetya authors wanted to signal to the world that doing business in Ukraine would lead
+            to sever consequences.</p>
+        <div style="height: 25px;"></div>
+
+        <h2>Motivation of the Attack</h2>
+        <p>Thanks to its initial delivery method, we can, with a high degree of confidence assume that the attackers
+            wanted to target Ukraine. While the attack seemed at first instance like a financially motivated ransom
+            operation, it quickly came to light that the intent was more political and aimed to infuse chaos, sabotage
+            and to demoralize, destabilize Ukraine economics, and deter foreign investments. NotPetya, in bigger
+            context, was another one of a series of cyberattacks against Ukraine. In 2015 Russia conducted a cyberattack
+            on Western Ukraine's power grids, and in 2016, a cyberattack on another Kyiv's power grid. These
+            cyber-attacks continued to 2022 and this very day as well. </p>
+        <div style="height: 25px;"></div> 
+
+        <h2>Attribution of the Attack</h2>
+        <p>The timing of the attack as well as the context of it points to Russian affiliated actor. On October 19th
+            2020, the DoJ indicted six Russian officers from GRU Unit 74455, also known as "Sandworm." EU Parliament
+            along with 5 Eyes countries and a short press release by the White House , all point to Sandworm as well.
+            Therefore, we can attribute the cyber attack, with a high level of confidence to the Sandworm that is
+            assumed to be part of Russian GRU.</p>
+        <div style="height: 25px;"></div>
+
+        <h2>Conclusion</h2>
+        <p>Stating that the NotPetya was an attack can be done so also because it had no characteristics of espionage.
+            No data was stolen, only damaged. Its technical design, target, and timing further confirm this. Whether the
+            spillover was intentional or not, the NotPetya attack underlines the need for safer supply chains and the
+            importance of guardrails and assessment of collateral damages. This attack also opened the important
+            question of cyber insurance claims and "war-exclusion" that are still not answered and invited other
+            questions about whether such actions are acts of war.</p>
+
+    </div>
+
+    <div style="height: 150px;"></div>
+    <hr>
+    
+    <h3>References</h3>
+
+    <p class="dark-small-text">Andy Greenberg, "NotPetya: The Hack That Crashed the World," Wired, August 22, 2018</p>
+    <p class="dark-small-text">Andy Greenberg, "The Untold Story of NotPetya, the Most Devastating Cyberattack in
+        History," Wired, August 22, 2018</p>
+    <p class="dark-small-text">Telebots: The Back Supply Chain Attacks Against Ukraine," WeLiveSecurity, June 30,
+        2017</p>
+    <p class="dark-small-text">Andy Greenberg, Sandworm: A New Era of Cyberwar and the Hunt for the Kremlin's Most
+        Dangerous Hackers (New York: Penguin Press, 2019).</p>
+    <p class="dark-small-text">Jack Rhysider, "The Untold Story of NotPetya, the Most Devastating Cyberattack in
+        History," YouTube, 2023</p>
+    <p class="dark-small-text">WIRED, "A Timeline of Russian Cyberattacks on Ukraine" YouTube 2022</p>
+    <p class="dark-small-text">"Justice Department Announces Charges Against Russian National for Cybercrime," U.S.
+        Department of Justice, October 24, 2019</p>
+    <p class="dark-small-text">European Parliament, "Question for Written Answer E-001005-18," April 16, 2018</p>
+    <p class="dark-small-text">Statement by the Press Secretary," The White House Archives, December 20, 2017</p>
+
+
+</main>
+
+<footer>Miro Kuruc © 2025</footer>
+
+<script src="/script.js" defer></script>
+
+</body>
+</html>

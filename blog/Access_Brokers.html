@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <meta name="date" content="2025-01-01"> <!-- Replace with the actual date -->
+    <meta name="author" content="Miro Kuruc"> <!-- Optional: Add your name -->
+    <title>Understanding Access Brokers in Cybercrime</title> <!-- Replace with the blog title -->
+</head>
+<body>
+
+    <header>
+        <div class="nav-left">
+            <a href="../index.html" class="encrypted-text" data-original="Back"><b>Back</b></a>
+            <a href="https://raw.githubusercontent.com/MiroKuruc/whoami/refs/heads/main/Miro%20Kuruc%20(65C4EF4B)%20%E2%80%93%20Public.asc"
+                id="downloadLink" class="encrypted-text" data-original="PGP"><b>PGP</b></a>
+            <a href="../resume.html" class="encrypted-text" data-original="Resume"><b>Resume</b></a>
+        </div>
+    </header>
+
+<main>
+
+    <div style="padding: 100px;"></div>
+
+    <img src="blogpictures/janus.jpg" alt="Description of image" class="title-photo">
+
+    <h1>Access Brokers</h1>
+
+    <div class="blog-meta">
+        Published on: 26 October 2024 | Reading Time: 3 min
+    </div>
+
+    <div class="hashtags">
+        <span>#Cybersecurity</span> <span>#AcademicWriting</span> <span>#Cybercrime</span>
+    </div>
+
+    <div style="padding: 20px;"></div>
+
+
+    <div class="blog-content">
+        <p>Access Brokers play a pivotal role in the cybercrime ecosystem by providing unauthorized access to network
+            systems. Mostly motivated by the highest bidder, they are the most intriguing as they decide who will gain
+            access to conduct the breach. Without them rest of the ecosystem would be useless for operation.
+            Understanding of access brokers offers insights into their motivations, behaviors, and operational methods.
+            While they often may, on light, hide behind "Pen-testers" job descriptions, they may be affiliated with a
+            RaaS groups or are lone rogues who monetize the access on their own. Like God Janus who was recognized as
+            the deity of doorways and transitions, access brokers serve as gatekeepers, holding keys and controlling
+            entry points into networks. They possess knowledge of vulnerabilities and facilitate unauthorized access for
+            other cybercriminals, effectively acting as intermediaries in the cyber underworld. This power is the
+            product they monetize.</p>
+
+        <div style="height: 25px;"></div> <!-- Adds a vertical space of 25px -->
+
+        <h2>Unauthorized Entry as a Product</h2>
+        <p> Access is a product that can have different forms. This access may be in the form of credentials, session
+            tokens, or 0-day vulnerabilities that are monetized by access brokers either through sales directly to
+            ransomware groups, or on black market forums like Exploit Forum, XSS, or other private forums. Access
+            broker's product cycle consist of:</p>
+        <ol>
+            <li><strong>Collection</strong>: Gathering information on how to gain access to target systems.</li>
+            <li><strong>Packaging</strong>: Bundling stolen access with additional data and system details.</li>
+            <li><strong>Sale</strong>: Selling access through dark web marketplaces, sometimes in bulk.</li>
+            <li><strong>Exploitation</strong>: Buyers leverage the stolen tokens to carry out attacks.</li>
+        </ol>
+
+        <p> Credentials, or in other words login details, are the most lucrative as they represent authentic access
+            already authorized by the organization. Their attractivity stems from the fact, that they are already
+            established access of employees of the targets, and they usually do not trigger any alerts. Most often, they
+            are harvested by (spear)phishing, password brute-forcing, or info-stealing malware, e.g. keylogger.
+            Depending on whether the credentials belong to customers or employees, their value differs and is based also
+            on what country, sector, and company the credential belongs to. Overall, they are easily accessible for a
+            few hundred or thousands of dollars on the dark market.</p>
+
+        <p> In addition to credentials that represent the majority of the access brokers market, there are session
+            tokens that allow cybercriminals to bypass traditional security measures like passwords and multi-factor
+            authentication that are sold as well. They exploit vulnerabilities in remote access services like RDP and
+            VPNs. Another product, 0-days, are rarer and come with a more expensive price tag. Due to their nature, they
+            are rather used by state actors than cyber criminals. Often, they can be sold back to the companies that are
+            proactively trying to pay in case someone finds any vulnerability in their system. Nevertheless,
+            conceptually at least, 0-day vulnerabilities offer access that can be monetized by access brokers as
+            well. </p>
+
+        <p> The access brokers' market exists because the access brokers either don't have sufficient capabilities to
+            utilize it and conduct the cyber operation themselves or just don't have the risk appetite to do so. This
+            "access-as-a-product" model provides efficiency and scalability to cybercriminal operations by streamlining
+            their attacks. Pricing is also typically based on the target’s publicly stated revenue and is auctioned in
+            an attempt to encourage a bidding war. The sectors attracting the highest average asking price for access
+            were government, financial services, and industrial and engineering organizations.</p>
+
+        <div style="height: 25px;"></div> <!-- Adds a vertical space of 25px -->
+
+        <h2>The Market for Access Brokers</h2>
+        <p> The access brokers' market exists because the access brokers either don't have sufficient capabilities to
+            utilize it and conduct the cyber operation themselves or just don't have the risk appetite to do so. This
+            "access-as-a-product" model provides efficiency and scalability to cybercriminal operations by streamlining
+            their attacks. Pricing is also typically based on the target’s publicly stated revenue and is auctioned in
+            an attempt to encourage a bidding war. The sectors attracting the highest average asking price for access
+            were government, financial services, and industrial and engineering organizations.</p>
+
+        <div style="height: 25px;"></div> <!-- Adds a vertical space of 25px -->
+
+        <img src="blogpictures/askpriceaccess.png" alt="Description of image" class="smaller-image">
+
+        <div style="height: 25px;"></div> <!-- Adds a vertical space of 25px -->
+
+        <p>To mitigate the above-mentioned threat, organizations should in addition to establishing strong access
+            controls, mandatory multi-factor authentication, and zero-trust architecture also monitor for suspicious
+            activity, especially on remote access services, and offer awareness training against social engineering and
+            phishing to their employees. Also, develop bug bounty programs offering payments, either for 0-days or
+            credentials that would allow the cyber-criminals to report the leaks directly to the company. While there is
+            a cost connected to such a program, this cost will most likely be always smaller than one that would come in
+            case the access would be used in a malware attack against the company. To improve security, companies need
+            to embrace and work with their vulnerabilities, not to ignore or hide them. </p>
+
+        <div style="height: 25px;"></div> <!-- Adds a vertical space of 25px -->
+
+        <h2>Conclusion</h2>
+        <p>While cyber security is not the main earning function of many businesses, it is necessary to protect the
+            earnings from still-growing cybercriminals. Cybercrime is still growing trend and only after we accept the
+            existence and understand the access brokers that are the most integral part of the cyber criminal groups
+            targeting the businesses, we can design systems and procedures more immune to these attacks. </p>
+
+    </div>
+
+    <div style="height: 150px;"></div> <!-- Adds a vertical space of 25px -->
+    <hr> <!-- This creates a horizontal line -->
+    <h3>References</h3>
+
+    <p class="dark-small-text">CyberNews. (2024, May 12). Where People Go When They Want to Hack You. YouTube.
+        https://www.youtube.com/watch?v=TLPHmHPaCiQ</p>
+    <p class="dark-small-text">Maicar. (2024). Iconography/Janus/mur042. Maicar.com.
+        https://www.maicar.com/GML/000Iconography/Janus/slides/mur042.html</p>
+    <p class="dark-small-text">Pentest-Tools. (2023, January 12). Adrian Furtuna at @DefCampRO 2022: Penetration Testers
+        vs Initial Access Brokers. YouTube. https://www.youtube.com/watch?v=XNOUKFVbxlw</p>
+    <p class="dark-small-text">Team, C. I. (2024). Access Brokers: Their Targets and Their Worth | CrowdStrike.
+        Crowdstrike.com. https://www.crowdstrike.com/en-us/blog/access-brokers-targets-and-worth/</p>
+
+
+</main>
+
+<footer>
+    Miro Kuruc © 2025
+</footer>
+<script src="/script.js" defer></script>
+</body>
+</html>
