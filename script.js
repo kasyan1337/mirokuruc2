@@ -97,43 +97,110 @@ function toggleList(listId) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const progressBar = document.querySelector('.progress-bar');
-    const tocList = document.querySelector('.toc ul');
+    const headings = document.querySelectorAll('.blog-content h1, .blog-content h2, .blog-content h3');
+    headings.forEach((heading, index) => {
+        if (!heading.id) {
+            heading.id = 'section-' + index;
+        }
+    });
 
+    const tocList = document.querySelector('.contents-menu ul');
     if (tocList) {
-        const headings = document.querySelectorAll('.blog-content h1, .blog-content h2, .blog-content h3');
-        headings.forEach((heading, index) => {
-            if (!heading.id) {
-                heading.id = 'section-' + index;
-            }
+        tocList.innerHTML = '';
+        headings.forEach(heading => {
             const li = document.createElement('li');
-            li.classList.add('toc-' + heading.tagName.toLowerCase());
-            const a = document.createElement('a');
-            a.href = '#' + heading.id;
-            a.textContent = heading.textContent;
-            a.addEventListener('click', function (e) {
+            li.className = heading.tagName.toLowerCase();
+            const link = document.createElement('a');
+            link.href = '#' + heading.id;
+            link.textContent = heading.textContent;
+
+            link.addEventListener('click', function(e) {
                 e.preventDefault();
-                const target = document.getElementById(heading.id);
-                const yOffset = -80;
-                const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
-                window.scrollTo({ top: y, behavior: 'smooth' });
+                const rect = heading.getBoundingClientRect();
+                const absoluteTop = window.pageYOffset + rect.top;
+                const centerPosition = absoluteTop - (window.innerHeight / 2) + (rect.height / 2);
+                window.scrollTo({ top: centerPosition, behavior: 'smooth' });
+                document.querySelectorAll('.contents-menu li').forEach(item => item.classList.remove('active'));
+                li.classList.add('active');
             });
-            li.appendChild(a);
+
+            li.appendChild(link);
             tocList.appendChild(li);
         });
     }
 
-    function updateProgress() {
-        const scrollTop = window.scrollY;
-        const docHeight = document.body.scrollHeight - window.innerHeight;
-        const scrolled = (scrollTop / docHeight) * 100;
-        if (progressBar) {
-            progressBar.style.height = scrolled + '%';
+    const trigger = document.querySelector('.contents-trigger');
+    const menu = document.querySelector('.contents-menu');
+    if (trigger && menu) {
+        let hideTimeout;
+
+        const showMenu = () => {
+            clearTimeout(hideTimeout);
+            menu.classList.add('visible');
+        };
+
+        const hideMenu = () => {
+            hideTimeout = setTimeout(() => {
+                menu.classList.remove('visible');
+            }, 300);
+        };
+
+        trigger.addEventListener('mouseenter', showMenu);
+        trigger.addEventListener('mouseleave', hideMenu);
+        menu.addEventListener('mouseenter', showMenu);
+        menu.addEventListener('mouseleave', hideMenu);
+    }
+
+    function updateReadingProgress() {
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const scrolled = (scrollTop / (documentHeight - windowHeight)) * 100;
+        const progressLine = document.querySelector('.progress-line');
+        if (progressLine) {
+            progressLine.style.height = `${scrolled}%`;
         }
     }
 
-    if (progressBar) {
-        document.addEventListener('scroll', updateProgress);
-        updateProgress();
-    }
+    window.addEventListener('scroll', () => {
+        requestAnimationFrame(updateReadingProgress);
+    });
+
+    updateReadingProgress();
+
+    let ticking = false;
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            window.requestAnimationFrame(function() {
+                const windowHeight = window.innerHeight;
+                const windowMiddle = window.pageYOffset + (windowHeight / 2);
+
+                let closest = null;
+                let closestDistance = Infinity;
+
+                headings.forEach(heading => {
+                    const rect = heading.getBoundingClientRect();
+                    const absoluteTop = window.pageYOffset + rect.top;
+                    const distance = Math.abs(absoluteTop - windowMiddle);
+
+                    if (distance < closestDistance) {
+                        closestDistance = distance;
+                        closest = heading;
+                    }
+                });
+
+                if (closest) {
+                    document.querySelectorAll('.contents-menu li').forEach(item => item.classList.remove('active'));
+                    const activeLink = document.querySelector(`.contents-menu li a[href="#${closest.id}"]`);
+                    if (activeLink) {
+                        activeLink.parentElement.classList.add('active');
+                    }
+                }
+
+                ticking = false;
+            });
+
+            ticking = true;
+        }
+    });
 });
