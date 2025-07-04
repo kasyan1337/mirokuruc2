@@ -427,6 +427,8 @@ h2 {
 
 @media (max-width: 600px) {
     .contents-menu {
-        display: none !important;
+        display: none !important; /* uprimne mat table of contents na telefonoch nie je asi najlepsia volba,
+    displaye su male a bude to strasne zajebane textom a prekryvat sa, asi je najlepsie to proste vypnut na telefonoch
+    a mat tam iba progress bar. Na desktopoch je to ok, no telefony - asi by som to nerobil */
     }
 }
