@@ -95,3 +95,45 @@ function toggleList(listId) {
         }
     }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const progressBar = document.querySelector('.progress-bar');
+    const tocList = document.querySelector('.toc ul');
+
+    if (tocList) {
+        const headings = document.querySelectorAll('.blog-content h1, .blog-content h2, .blog-content h3');
+        headings.forEach((heading, index) => {
+            if (!heading.id) {
+                heading.id = 'section-' + index;
+            }
+            const li = document.createElement('li');
+            li.classList.add('toc-' + heading.tagName.toLowerCase());
+            const a = document.createElement('a');
+            a.href = '#' + heading.id;
+            a.textContent = heading.textContent;
+            a.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.getElementById(heading.id);
+                const yOffset = -80;
+                const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+            });
+            li.appendChild(a);
+            tocList.appendChild(li);
+        });
+    }
+
+    function updateProgress() {
+        const scrollTop = window.scrollY;
+        const docHeight = document.body.scrollHeight - window.innerHeight;
+        const scrolled = (scrollTop / docHeight) * 100;
+        if (progressBar) {
+            progressBar.style.height = scrolled + '%';
+        }
+    }
+
+    if (progressBar) {
+        document.addEventListener('scroll', updateProgress);
+        updateProgress();
+    }
+});
